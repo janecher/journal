@@ -3,19 +3,23 @@ export function Entry(title, body) {
   this.body = body;
 }
 
-Entry.prototype.numberOfWords = function() {
-  while (this.body.includes("  "))
+function numberOfWords(str) {
+  while (str.includes("  "))
   {
-      this.body = this.this.body.replace("  ", " ");
+      str = str.replace("  ", " ");
   }
-  return this.body.split(" ").length;
+  return str.split(" ").length;
+}
+
+Entry.prototype.numberOfWordsInBody = function() {
+  return numberOfWords(this.body);
 }
 
 Entry.prototype.numberOfVowels = function() {
   const vowelArray = 'AEIOUaeiou'.split('');
   let vowels = 0;
   for(let i=0; i<this.body.length; i++) {
-    if(vowelArray.includes(this.body(charAt(i)))) {
+    if(vowelArray.includes(this.body.charAt(i))) {
       vowels++;
     }
   }
@@ -26,9 +30,22 @@ Entry.prototype.numberOfConsonants = function() {
   const vowelArray = 'AEIOUaeiou'.split('');
   let consonants = 0;
   for(let i=0; i<this.body.length; i++) {
-    if(!vowelArray.includes(this.body(charAt(i)))) {
+    if(!vowelArray.includes(this.body.charAt(i))) {
       consonants++;
     }
   }
   return consonants;
+}
+
+Entry.prototype.getTeaser = function()  {
+  let sentence = this.body.split(". ")[0];
+  if (numberOfWords(sentence) > 8) {
+    while (sentence.includes("  "))
+    {
+      sentence = sentence.replace("  ", " ");
+    }
+    return sentence.split(" ").slice(0, 9).join(" ");
+  } else {
+    return sentence;
+  }
 }
