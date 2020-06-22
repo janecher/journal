@@ -1,3 +1,26 @@
 body {
   background-color: #7FDBFF;
+  padding: 0px;
+  margin: 0px;
+}
+
+h1 {
+  padding: 20px;
+  background-color: blue;
+  color: white;
+  text-align: center;
+}
+
+h3 {
+  margin: 20px;
+}
+
+form {
+  margin: 10px;
+}
+
+button {
+  background-color: blue;
+  font-weight: bold;
+  color: white;
 }

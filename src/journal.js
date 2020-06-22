@@ -38,7 +38,7 @@ Entry.prototype.numberOfConsonants = function() {
 }
 
 Entry.prototype.getTeaser = function()  {
-  let sentence = this.body.split(". ")[0];
+  let sentence = this.body.split(".")[0];
   if (numberOfWords(sentence) > 8) {
     while (sentence.includes("  "))
     {
